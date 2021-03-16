@@ -6,6 +6,6 @@ const server = app.listen(PORT, () => {
   console.log(`Server alive on port ${PORT}`);
 });
 
-app.get("/", (req, res) => {
-  res.send("hi there, welcome!");
+app.get("/", (req, res, next) => {
+  res.status(200).send("Yahoo!");
 });
