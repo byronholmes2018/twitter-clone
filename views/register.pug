@@ -4,11 +4,11 @@ block content
     .loginContainer 
         h1 Register 
         form#registerForm(method="post", onsubmit="event.preventDefault(); validateForm();") 
-            input(type="text", name="firstName", placeHolder="First name", required="")
-            input(type="text", name="lastName", placeHolder="Last name", required="")
-            input(type="text", name="userName", placeHolder="Username", required="")
-            input(type="email", name="email", placeHolder="Email", required="")
-            input(type="email", name="email", placeHolder="Email", required="")
+            p.errorMessage #{errorMessage}
+            input(type="text", name="firstName", placeHolder="First name", value=firstName, required="")
+            input(type="text", name="lastName", placeHolder="Last name", value=lastName,required="")
+            input(type="text", name="userName", placeHolder="Username", value=userName,required="")
+            input(type="email", name="email", placeHolder="Email", value=email,required="")
             input#password(type="password", name="password", placeHolder="Password", required="")
             input#passwordConf(type="password", name="passwordConf", placeHolder="Confirm password", required="")
             input(type="submit", value="Login")
