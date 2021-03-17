@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = 3000 || process.env.PORT;
 const middleWare = require("./middleware");
+const path = require("path");
 
 const server = app.listen(PORT, () => {
   console.log(`Server alive on port ${PORT}`);
@@ -9,6 +10,8 @@ const server = app.listen(PORT, () => {
 
 app.set("view engine", "pug");
 app.set("views", "views");
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 const loginRoute = require("./routes/loginRoute");
