@@ -4,11 +4,11 @@ const PORT = 3000 || process.env.PORT;
 const middleWare = require("./middleware");
 const path = require("path");
 const bodyParser = require("body-parser");
-
+const mongoose = require("./database");
 const server = app.listen(PORT, () => {
   console.log(`Server alive on port ${PORT}`);
 });
-
+require("dotenv").config();
 app.set("view engine", "pug");
 app.set("views", "views");
 
