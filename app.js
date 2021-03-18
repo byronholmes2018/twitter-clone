@@ -8,12 +8,22 @@ const mongoose = require("./database");
 const server = app.listen(PORT, () => {
   console.log(`Server alive on port ${PORT}`);
 });
+const session = require("express-session");
+
 require("dotenv").config();
 app.set("view engine", "pug");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false,
+  })
+);
 
 // Routes
 const loginRoute = require("./routes/loginRoute");
